@@ -12,18 +12,22 @@ The project investigates a common claim: *Are American homes being built smaller
 ## 3. Methods and Tools Used
 - **Programming Language:** Python 3
 - **Libraries:** Pandas, NumPy, Matplotlib, Seaborn
-- **Methods:** 
-  - Data cleaning, validation, and multi-frequency dataset integration (aggregating quarterly housing observations to annual means).
-  - Derived metric calculation (personal living-space proxy: home square feet divided by household size, indexed trends, annual percentage changes).
-  - Time-series visualization, correlation analysis, and sequential change decomposition.
-
+- **Core Metric Formula:**
+  $$\text{Personal Living-Space Proxy (sq ft/person)} = \frac{\text{Annual Median Home Size (sq ft)}}{\text{Average Household Size (persons)}}$$
+- **Analytical Methods:**
+  - Data cleaning and time-series transformation (aggregating quarterly housing observations into annual means).
+  - Pearson correlation analysis (in levels and annual percentage changes).
+  - Segmented linear regression (Pre- and Post-2015 trend break analysis).
+  - Sequential change decomposition.
 ## 4. Key Findings and One Limitation
 - **Key Findings:** 
-  - The personal living-space proxy rose from 659 sq ft per person in 1987 to a peak of 974 in 2015, before settling at 858 in 2025 (a net 30.2% increase over 1987).
-  - Long-term growth was primarily driven by larger homes (+147.5 sq ft effect) and smaller households (+51.6 sq ft effect). Conversely, the post-2015 contraction was driven chiefly by shrinking home sizes (-129.2 sq ft effect).
+ 1. **Long-Term Growth:** The personal living-space proxy rose from **658.8 sq ft/person** in 1987 to **857.9 sq ft/person** in 2025, representing a net **+30.2%** increase.
+  2. **Structural Turning Point:** Per-person living space reached a historical peak in **2015 at 973.6 sq ft/person**, followed by an **11.9% contraction** from 2015 to 2025.
+  3. **Drivers of Change:** Long-term growth was primarily driven by larger new homes and shrinking household sizes, whereas the post-2015 decline was overwhelmingly driven by a reduction in new-home floor area.
 - **Limitation:** The metric is a constructed macro-proxy (dividing median home size by average household size) rather than directly observed occupied space, and regression results describe historical patterns without establishing direct causality.
 
 ## 5. Instructions for Running the Analysis
-1. Clone this repository:
+1. **Environment Setup:**
+   Ensure Python 3 and the required data science packages are installed:
    ```bash
-   git clone [https://github.com/hotwatertemp/data-science-project.git](https://github.com/hotwatertemp/data-science-project.git)
+   pip install pandas numpy matplotlib seaborn scipy
